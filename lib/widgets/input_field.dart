@@ -49,7 +49,7 @@ class _InputFieldState extends State<InputField> {
         return null;
       },
 
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: AutovalidateMode.disabled,
       obscureText: widget.obscureText,
       controller: widget.textController,
 

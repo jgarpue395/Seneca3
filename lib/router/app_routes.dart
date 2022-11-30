@@ -1,8 +1,10 @@
-import 'dart:convert';
+import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:seneca/Screens/screens.dart';
 import 'package:seneca/models/menu_options.dart';
+import 'package:seneca/providers/user_provider.dart';
 
 class AppRoutes {
   static const initialRoute = "login";
@@ -18,7 +20,14 @@ class AppRoutes {
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
     Map<String, Widget Function(BuildContext)> appRoutes = {};
     
-    appRoutes.addAll({"login" : (BuildContext context) => LoginScreen()});
+    appRoutes.addAll(
+      {
+        "login" : (BuildContext context) { 
+          final userProvider = Provider.of<UserProvider>(context);
+          return LoginScreen(usuarios: userProvider.userList);
+        }
+      }
+    );
 
     for (var option in menuOptions) {
       appRoutes.addAll({option.route : (BuildContext context) => option.screen});

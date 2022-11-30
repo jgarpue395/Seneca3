@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:seneca/Screens/screens.dart';
 import 'package:seneca/widgets/input_field.dart';
+import 'package:seneca/models/user.dart';
 
 class LoginScreen extends StatelessWidget {
 
-  const LoginScreen({Key? key}) : super(key: key);
+  final List<User> usuarios;
+
+  const LoginScreen({Key? key, required this.usuarios}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -49,13 +52,25 @@ class LoginScreen extends StatelessWidget {
                           return;
                         }
 
-                        Navigator.push(
-                          context, 
-                          MaterialPageRoute(builder: (context) => SecondScreen(user: formValues["user"].toString(), password: formValues["password"].toString()),)
-                        );
+                        if (usuarios.isNotEmpty)
+                        {
+                          for (User usuario in usuarios) {
+                            if (usuario.usuario == formValues["user"] && usuario.clave == formValues["password"])
+                            {
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => SecondScreen(user: formValues["user"].toString()))
+                              );
 
-                        textControllerUser.clear();
-                        textControllerPassword.clear();
+                              textControllerUser.clear();
+                              textControllerPassword.clear();
+
+                              return;
+                            }
+                          }  
+                        }
+
+                        mensajeError(context);
                       }, 
               
                       child: const SizedBox(
@@ -92,6 +107,29 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void mensajeError(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (buildcontext) {
+        return AlertDialog(
+          title: const Text("!Error¡"),
+          content: const Text("Usuario o Contraseña Incorrecto"),
+          actions: <Widget>[
+            ElevatedButton(
+              child: const Text(
+                "CERRAR",
+                style: TextStyle(color: Color.fromARGB(255, 38, 45, 255)),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      }
     );
   }
 }
