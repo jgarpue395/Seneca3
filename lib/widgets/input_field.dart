@@ -14,8 +14,6 @@ class InputField extends StatefulWidget {
 
   final bool password;
 
-  final TextEditingController textController;
-
   InputField({
     Key? key, 
     this.hintText, 
@@ -27,7 +25,6 @@ class InputField extends StatefulWidget {
     required this.formProperty,
     required this.formValues,
     this.password = false, 
-    required this.textController
   }) : super(key: key);
 
   @override
@@ -51,7 +48,6 @@ class _InputFieldState extends State<InputField> {
 
       autovalidateMode: AutovalidateMode.disabled,
       obscureText: widget.obscureText,
-      controller: widget.textController,
 
       decoration: InputDecoration(
         hintText: widget.hintText,

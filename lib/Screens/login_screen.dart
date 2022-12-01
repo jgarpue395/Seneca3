@@ -19,9 +19,6 @@ class LoginScreen extends StatelessWidget {
       "password" : ""
     };
 
-    final textControllerUser = TextEditingController();
-    final textControllerPassword = TextEditingController();
-
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 2, 58, 156),
       
@@ -40,10 +37,10 @@ class LoginScreen extends StatelessWidget {
                       image: AssetImage("assets/iseneca.png"),
                     ),
 
-                    InputField(hintText: "Usuario", formProperty: "user", formValues: formValues, textController: textControllerUser),
+                    InputField(hintText: "Usuario", formProperty: "user", formValues: formValues),
                     const SizedBox(height: 20),
               
-                    InputField(hintText: "Contraseña", obscureText: true, formProperty: "password", formValues: formValues, password: true, textController: textControllerPassword),
+                    InputField(hintText: "Contraseña", obscureText: true, formProperty: "password", formValues: formValues, password: true),
                     const SizedBox(height: 20),
               
                     ElevatedButton(
@@ -61,9 +58,6 @@ class LoginScreen extends StatelessWidget {
                                 context, 
                                 MaterialPageRoute(builder: (context) => SecondScreen(user: formValues["user"].toString()))
                               );
-
-                              textControllerUser.clear();
-                              textControllerPassword.clear();
 
                               return;
                             }
