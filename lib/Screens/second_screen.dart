@@ -7,83 +7,114 @@ class SecondScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar (
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: const Text("ISENECA"),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.exit_to_app)
+    return Scaffold(    
+      body: Stack(
+        children: [
+          Container(
+            color: Colors.blue[800],
+            width: double.infinity,
+            height: 200,
+            child: const Image (
+              image: AssetImage("assets/iseneca.png"),
+            ),
           ),
-        ],
-      ),
-    
-      body: Center(
-        child: Column(
-          children: [ 
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image (
-                    image: const AssetImage("assets/iseneca.png"),
-                    color: Colors.blue[700],
-                  ),
-            
-                  Row (
-                    mainAxisAlignment: MainAxisAlignment.center,
+      
+          Container(
+            margin: const EdgeInsets.only(top: 150, left: 15),
+            width: 360,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10)
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row (
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(user),
-                      const SizedBox(width: 10,),
-                      const Icon(Icons.people)
+                      const SizedBox(width: 250),
+                      IconButton(
+                        icon: const Icon(Icons.people), 
+                        onPressed: () { 
+                          Navigator.pop(context);
+                        },
+                      )
                     ]
                   ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const[
+                      Text("C.E.I.P. Maestro Eduardo Lobillo", style: TextStyle(color: Colors.blue,)),
           
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const[
-                        Text("C.E.I.P. Maestro Eduardo Lobillo", style: TextStyle(color: Colors.blue)),
+                      SizedBox(height: 5),
           
-                        SizedBox(height: 5),
-          
-                        Text("Perfil Profesorado", style: TextStyle(color: Colors.blue)),
-                      ],
-                    ),
+                      Text("Perfil Profesorado", style: TextStyle(color: Colors.blue)),
+                    ],
                   ),
-                ],
-              ),
-            ),
-    
-            Row(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    
-                  }, 
-    
-                  child: SizedBox(
-                    height: 50,
-                    child: Center(
-                      child: Row(
-                        children: const [
-                          Icon(Icons.alarm),
-                          Text("Entrar"),
-                        ],
+                ),
+
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10))
+                  ),
+                  height: 75,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.transparent)),
+                        onPressed: () {
+                          
+                        }, 
+        
+                        child: SizedBox(
+                          height: 50,
+                          width: 130,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Icon(Icons.alarm, color: Colors.white),
+                              Text("  Avisos", style: TextStyle(color: Colors.white, fontSize: 12)),
+                            ],
+                          ),
+                        )
+                      ),
+
+                      const VerticalDivider(color: Colors.white,),
+
+                      ElevatedButton(
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.transparent)),
+                        onPressed: () {}, 
+
+                        child: SizedBox(
+                          height: 50,
+                          width: 130,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Icon(Icons.account_balance_wallet, color: Colors.white),
+                              Text(" Bandeja de firmas", style: TextStyle(color: Colors.white, fontSize: 12)),
+                            ],
+                          ),
+                        )
                       )
-                    ),
-                  )
+                    ],
+                  ),
                 )
               ],
-            )
-          ]
-        )
+            ),
+          )
+        ],
       ),
     );
   }
