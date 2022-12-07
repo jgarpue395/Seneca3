@@ -1,4 +1,4 @@
-#Wed Dec 07 14:15:11 CET 2022
-base.0=C\:\\src\\proyectos_flutter\\Seneca3\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Wed Dec 07 21:48:45 CET 2022
+base.0=C\:\\src\\Seneca3\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

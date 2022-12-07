@@ -7,7 +7,8 @@ class SecondScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(    
+    return Scaffold(   
+      backgroundColor: Colors.white, 
       body: Stack(
         children: [
           Container(
@@ -21,7 +22,7 @@ class SecondScreen extends StatelessWidget {
       
           Center(
             child: Container(
-              margin: const EdgeInsets.only(top: 150, left: 15),
+              margin: const EdgeInsets.only(top: 150),
               width: 360,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -117,14 +118,183 @@ class SecondScreen extends StatelessWidget {
             ),
           ),
 
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 220, left: 15),
+              child: SizedBox(
+                height: 500,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 200,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 50),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 80,
+                              height: 200,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Image(
+                                    image: AssetImage("assets/sombrero.png"),
+                                    width: 75,
+                                  ),
+
+                                  Text("Alumndado del centro", textAlign: TextAlign.center)
+                                ],
+                              ),
+                            ),
+                
+                            VerticalDivider(width: 60, color: Colors.grey[500]),
+                
+                            SizedBox(
+                              width: 80,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children:const [
+                                  Image(
+                                    image: AssetImage("assets/profesor.png"),
+                                    width: 65,
+                                  ),
+
+                                  Text("Personal del centro", textAlign: TextAlign.center)
+                                ],
+                              ),
+                            ),
+
+                            VerticalDivider(width: 60, color: Colors.grey[500]),
+                
+                            SizedBox(
+                              width: 80,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Image(
+                                    image: AssetImage("assets/covid.png"),
+                                    width: 45,
+                                  ),
+
+                                  Text("Información covid", textAlign: TextAlign.center,)
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    Divider(color: Colors.grey[500]),
+
+                    SizedBox(
+                      height: 200,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 80,
+                            height: 200,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Image(
+                                  image: AssetImage("assets/campana.png"),
+                                  width: 45,
+                                ),
+
+                                Text("Tablón de anucios", textAlign: TextAlign.center)
+                              ],
+                            ),
+                          ),
+                
+                          VerticalDivider(width: 60, color: Colors.grey[500]),
+                
+                          SizedBox(
+                            width: 80,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children:const [
+                                Image(
+                                  image: AssetImage("assets/calendario.png"),
+                                  width: 65,
+                                ),
+
+                                Text("Personal del centro", textAlign: TextAlign.center)
+                              ],
+                            ),
+                          ),
+
+                          VerticalDivider(width: 60, color: Colors.grey[500]),
+                        ],
+                      ),
+                    )
+                  ]
+                ),
+              ),
+            ),
+          ),
+
           Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Row(
-                children: const [
-                  Image(image: AssetImage("assets/sombrero.png"))
-                ],
-              )
-            ]
+              Container(
+                height: 60,
+                decoration: const BoxDecoration (
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow (
+                      color: Colors.black,
+                      offset: Offset(0.0, 12.0),
+                      blurRadius: 20.0,
+                    )
+                  ]
+                ),
+                
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 7.5, left: 25, right: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: const  [
+                          Icon(Icons.home_filled, size: 30),
+                          Text("Inicio")
+                        ],
+                      ),
+                  
+                      const SizedBox(width: 40),
+                  
+                      Column(
+                        children: const  [
+                          Icon(Icons.watch_later_outlined, size: 30),
+                          Text("Agenda")
+                        ],
+                      ),
+                  
+                      const SizedBox(width: 35),
+                  
+                      Column(
+                        children: const  [
+                          Icon(Icons.messenger_outline_sharp, size: 30,),
+                          Text("Comunicaciones")
+                        ],
+                      ),
+                  
+                      const SizedBox(width: 40),
+                  
+                      Column(
+                        children: const  [
+                          Icon(Icons.menu, size: 30),
+                          Text("Menu")
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
           )
         ],
       ),
