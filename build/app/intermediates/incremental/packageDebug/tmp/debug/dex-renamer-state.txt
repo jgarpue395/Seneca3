@@ -1,4 +1,4 @@
-#Wed Dec 07 21:48:45 CET 2022
+#Thu Dec 08 15:18:47 CET 2022
 base.0=C\:\\src\\Seneca3\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

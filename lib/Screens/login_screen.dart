@@ -109,8 +109,8 @@ class LoginScreen extends StatelessWidget {
       context: context,
       builder: (buildcontext) {
         return AlertDialog(
-          title: const Text("!Error¡"),
-          content: const Text("Usuario o Contraseña Incorrecto"),
+          title: const Text("¡Error!"),
+          content: const Text("Usuario o contraseña incorrecto"),
           actions: <Widget>[
             ElevatedButton(
               child: const Text(
